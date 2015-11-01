@@ -2,14 +2,21 @@
  * A kutya konstruktora
  * @constructor
  */
-var Dog = function () {};
+var Dog = function () {
+    return DogInstanceMock;
+};
+
 /**
  * An instance
- * @type {{id: number, name: string, email: string, pass: string}}
+ * @type {{id: number, callName: string}}
  */
 var DogInstanceMock = {
     id: 1,
-    callName: 'Bodri'
+    callName: 'Pocak',
+    owner: 'Lili',
+    sex: 'male',
+    type: 'Mopsz',
+    details: 'Ez egy cuki mopsz! :)'
 };
 
 /**

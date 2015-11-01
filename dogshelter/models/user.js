@@ -2,7 +2,9 @@
  * A felhasználó konstruktora
  * @constructor
  */
-var User = function () {};
+var User = function () {
+    return UserInstanceMock;
+};
 
 /**
  * An instance
@@ -10,9 +12,11 @@ var User = function () {};
  */
 var UserInstanceMock = {
     id: 1,
-    name: 'Dog Friend',
+    name: 'Lili',
     email: 'lovedog@dog.hu',
-    pass: 'Ilovedog58'
+    pass: 'Ilovedog58',
+    mobile: '0630/2569856',
+    address: 'Fa utca 6.'
 };
 
 /**

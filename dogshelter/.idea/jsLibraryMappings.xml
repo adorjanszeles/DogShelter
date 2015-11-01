@@ -10,6 +10,7 @@
     <file url="file://$PROJECT_DIR$/middleware/login/checkUserLogin.js" libraries="{Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/models/dog.js" libraries="{Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/models/user.js" libraries="{Node.js v4.1.1 Core Modules}" />
+    <file url="file://$PROJECT_DIR$/node_modules/express/lib/application.js" libraries="{Node.js Globals}" />
     <file url="file://$PROJECT_DIR$/routes/outside.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
   </component>
 </project>

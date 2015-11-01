@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+app.set('view engine', 'ejs');
+app.use('/public', express.static(__dirname + '/public'));
 
 /**
  * .tpl and .error on the res object
@@ -14,11 +16,6 @@ app.use(function (req, res, next) {
  * Include all the routes
  */
 require('./routes/outside')(app);
-
-/**
- * The old static server
- */
-//app.use('/', express.static(__dirname + '/public'));
 
 /**
  * Standard error handler
