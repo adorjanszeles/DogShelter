@@ -14,27 +14,29 @@
 <section class="hero-content">
     <div class="row">
         <div class="large-8 columns large-centered">
-            <form>
+            <form method="post">
                 <img src="" id="dogImage"/>
                 <label for="dogName"> Hívónév </label>
                 <input id="dogName" name="dogName" type="text" maxlength="20" value="<%= dog.callName %>"/>
                 <label for="userName"><a href="/userDetails/<%= dog.ownerUser %>">Felelős felhasználó neve</a></label>
-                <input id="userName" type="text" maxlength="20" disabled="yes" value="<%= dog.ownerUserName %>"/>
-                <select>
+                <input id="userName" name="userName" type="text" maxlength="20" disabled="yes" value="<%= dog.ownerUserName %>"/>
+                <select name="sex">
                     <option value="default">Nem</option>
                     <option value="boy" <%= dog.sex == 'boy' ? "selected" : "" %>>Fiú</option>
                     <option value="girl" <%= dog.sex == 'girl' ? "selected" : "" %>>Lány</option>
                 </select>
-                <select>
+                <select name="species">
                     <option value="default">Kérem válasszon egy fajtát</option>
                     <option value="Mopsz" <%= dog.species == 'Mopsz' ? "selected" : "" %>>Mopsz</option>
                     <option value="Nemetjuhasz" <%= dog.species == 'Nemetjuhasz' ? "selected" : "" %>>Németjuhasz</option>
                     <option value="Korgi" <%= dog.species == 'Korgi' ? "selected" : "" %>>Korgi</option>
                 </select>
                 <label for="details"> Leírás </label>
-                <textarea rows="4" cols="10" id="details"><%= dog.details %></textarea>
+                <textarea rows="4" cols="10" id="details" name="details"><%= dog.details %></textarea>
                 <a href="javascript:history.back()"><input id="back" name="back" value="Vissza" type="Button"/></a>
-                <input id="moidfy" name="modify" value="Módosít" type="submit"/>
+                <%if(dog.ownerUser == session.userId) {%>
+                    <input id="moidfy" name="modify" value="Módosít" type="submit"/>
+                <%}%>
             </form>
         </div>
     </div>

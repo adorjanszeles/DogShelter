@@ -7,12 +7,11 @@
     <file url="file://$PROJECT_DIR$/middleware/dog/getDogById.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/middleware/dog/getDogList.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/middleware/dog/updateDog.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
-    <file url="file://$PROJECT_DIR$/middleware/generic/auth.js" libraries="{Node.js v4.1.1 Core Modules}" />
-    <file url="file://$PROJECT_DIR$/middleware/generic/inverseAuth.js" libraries="{Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/middleware/generic/logout.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/middleware/generic/mainRedirect.js" libraries="{Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/middleware/generic/render.js" libraries="{Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/middleware/user/checkUserLogin.js" libraries="{Node.js v4.1.1 Core Modules}" />
+    <file url="file://$PROJECT_DIR$/middleware/user/checkUserModification.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/middleware/user/getUserById.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/middleware/user/updateUser.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/models/dog.js" libraries="{Node.js v4.1.1 Core Modules}" />

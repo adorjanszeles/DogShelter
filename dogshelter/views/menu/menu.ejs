@@ -202,10 +202,15 @@
                 <div class="row">
                     <div class="large-12 columns large-centered">
                         <ul class="button-group even-4">
-                            <li><a href="/" class="button">Kutyák</a></li>
-                            <li><a href="/dogRegistration" class="button">Kutya regisztráció</a></li>
-                            <li><a href="/registration" class="button">Regisztráció</a></li>
-                            <li><a href="/login" class="button">Belépés</a></li>
+                            <%if(session.userId !== undefined) {%>
+                                <li><a href="/" class="button">Kutyák</a></li>
+                                <li><a href="/dogRegistration" class="button">Kutya regisztráció</a></li>
+                                <li><a href="/userEdit/<%=session.userId%>" class="button">Adatlap módosítás</a></li>
+                                <li><a href="/logout" class="button">Kilépés</a></li>
+                            <%} else {%>
+                                <li><a href="/login" class="button">Belépés</a></li>
+                                <li><a href="/registration" class="button">Regisztráció</a></li>
+                            <%}%>
                         </ul>
                     </div>
                 </div>

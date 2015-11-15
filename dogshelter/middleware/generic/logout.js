@@ -4,9 +4,8 @@
 module.exports = function (objectrepository) {
 
     return function (req, res, next) {
-        req.session.destroy(function (err) {
-            return next();
-        });
+        req.session.userId = undefined;
+        return res.redirect('/login');
     };
 
 };
