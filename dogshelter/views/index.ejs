@@ -25,9 +25,9 @@
     <div class="row">
         <div class="large-8 columns large-centered">
             <ul class="small-block-grid-4">
-                <% for(var i = 0; i < 8; i++) { %>
-                <li><a href="dogDetails"><img src="../public/img/dog<%= i+1 %>.png"/></a></li>
-                <% } %>
+                <% dogs.forEach(function(item){ %>
+                <li><a href="dogDetails/<%=item.id%>"><img src="../public/img/dog_<%= 1 %>.png"/></a></li>
+                <% }) %>
             </ul>
         </div>
     </div>

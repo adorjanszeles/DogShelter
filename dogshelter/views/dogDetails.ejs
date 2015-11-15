@@ -17,22 +17,22 @@
             <form>
                 <img src="" id="dogImage"/>
                 <label for="dogName"> Hívónév </label>
-                <input id="dogName" name="dogName" type="text" maxlength="20" value="<%= dogModel['callName'] %>"/>
-                <label for="userName"><a href="userDetails">Felelős felhasználó neve</a></label>
-                <input id="userName" type="text" maxlength="20" disabled="yes" value="<%= dogModel['owner'] %>"/>
+                <input id="dogName" name="dogName" type="text" maxlength="20" value="<%= dog.callName %>"/>
+                <label for="userName"><a href="/userDetails/<%= dog.ownerUser %>">Felelős felhasználó neve</a></label>
+                <input id="userName" type="text" maxlength="20" disabled="yes" value="<%= dog.ownerUserName %>"/>
                 <select>
                     <option value="default">Nem</option>
-                    <option value="boy" <%= dogModel['sex'] == 'male' ? "selected" : "" %>>Fiú</option>
-                    <option value="girl" <%= dogModel['sex'] == 'female' ? "selected" : "" %>>Lány</option>
+                    <option value="boy" <%= dog.sex == 'boy' ? "selected" : "" %>>Fiú</option>
+                    <option value="girl" <%= dog.sex == 'girl' ? "selected" : "" %>>Lány</option>
                 </select>
                 <select>
                     <option value="default">Kérem válasszon egy fajtát</option>
-                    <option value="dog1" <%= dogModel['type'] == 'Mopsz' ? "selected" : "" %>>Mopsz</option>
-                    <option value="dog2" <%= dogModel['type'] == 'Nemetjuhasz' ? "selected" : "" %>>Németjuhasz</option>
-                    <option value="dog3" <%= dogModel['type'] == 'Korgi' ? "selected" : "" %>>Korgi</option>
+                    <option value="Mopsz" <%= dog.species == 'Mopsz' ? "selected" : "" %>>Mopsz</option>
+                    <option value="Nemetjuhasz" <%= dog.species == 'Nemetjuhasz' ? "selected" : "" %>>Németjuhasz</option>
+                    <option value="Korgi" <%= dog.species == 'Korgi' ? "selected" : "" %>>Korgi</option>
                 </select>
                 <label for="details"> Leírás </label>
-                <textarea rows="4" cols="10" id="details"><%= dogModel['details'] %></textarea>
+                <textarea rows="4" cols="10" id="details"><%= dog.details %></textarea>
                 <a href="javascript:history.back()"><input id="back" name="back" value="Vissza" type="Button"/></a>
                 <input id="moidfy" name="modify" value="Módosít" type="submit"/>
             </form>

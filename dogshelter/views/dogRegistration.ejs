@@ -14,24 +14,24 @@
 <section class="hero-content">
     <div class="row">
         <div class="large-8 columns large-centered">
-            <form>
+            <form method="post">
                 <label for="dogName"> Hívónév </label>
                 <input id="dogName" name="dogName" type="text" maxlength="20"/>
                 <label for="userName"> Felelős felhasználó neve </label>
-                <input id="userName" type="text" maxlength="20" disabled="yes"/>
-                <select>
+                <input id="userName" name="userName" type="text" maxlength="20"/>
+                <select id="sex" name="sex">
                     <option value="default">Nem</option>
                     <option value="boy">Fiú</option>
                     <option value="girl">Lány</option>
                 </select>
-                <select>
+                <select id="species" name="species">
                     <option value="default">Kérem válasszon egy fajtát</option>
-                    <option value="dog1">Kutya1</option>
-                    <option value="dog2">Kutya2</option>
-                    <option value="dog3">Kutya3</option>
+                    <option value="Mopsz">Mopsz</option>
+                    <option value="Nemetjuhasz">Németjuhasz</option>
+                    <option value="Korgi">Korgi</option>
                 </select>
                 <label for="details"> Leírás </label>
-                <textarea rows="4" cols="10" id="details">Kutyus leírása...</textarea>
+                <textarea rows="4" cols="10" id="details" name="details">Kutyus leírása...</textarea>
                 <input id="dogRegistration" type="submit" value="Regisztráció"/>
             </form>
         </div>
