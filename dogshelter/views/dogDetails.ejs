@@ -15,29 +15,37 @@
     <div class="row">
         <div class="large-8 columns large-centered">
             <form method="post">
-                <img src="" id="dogImage"/>
+                <img src="../public/img/<%= tpl.dog._id %>.png" id="dogImage"/>
                 <label for="dogName"> Hívónév </label>
-                <input id="dogName" name="dogName" type="text" maxlength="20" value="<%= dog.callName %>"/>
-                <label for="userName"><a href="/userDetails/<%= dog.ownerUser %>">Felelős felhasználó neve</a></label>
-                <input id="userName" name="userName" type="text" maxlength="20" disabled="yes" value="<%= dog.ownerUserName %>"/>
+                <input id="dogName" name="dogName" type="text" maxlength="20" value="<%= tpl.dog.callName %>"/>
+                <label for="userName"><a href="/userDetails/<%= tpl.dog.ownerUser %>">Felelős felhasználó neve</a></label>
+                <input id="userName" name="userName" type="text" maxlength="20" disabled="yes" value="<%= tpl.dog.ownerUserName %>"/>
                 <select name="sex">
                     <option value="default">Nem</option>
-                    <option value="boy" <%= dog.sex == 'boy' ? "selected" : "" %>>Fiú</option>
-                    <option value="girl" <%= dog.sex == 'girl' ? "selected" : "" %>>Lány</option>
+                    <option value="boy" <%= tpl.dog.sex == 'boy' ? "selected" : "" %>>Fiú</option>
+                    <option value="girl" <%= tpl.dog.sex == 'girl' ? "selected" : "" %>>Lány</option>
                 </select>
                 <select name="species">
                     <option value="default">Kérem válasszon egy fajtát</option>
-                    <option value="Mopsz" <%= dog.species == 'Mopsz' ? "selected" : "" %>>Mopsz</option>
-                    <option value="Nemetjuhasz" <%= dog.species == 'Nemetjuhasz' ? "selected" : "" %>>Németjuhasz</option>
-                    <option value="Korgi" <%= dog.species == 'Korgi' ? "selected" : "" %>>Korgi</option>
+                    <option value="Mopsz" <%= tpl.dog.species == 'Mopsz' ? "selected" : "" %>>Mopsz</option>
+                    <option value="Nemetjuhasz" <%= tpl.dog.species == 'Nemetjuhasz' ? "selected" : "" %>>Németjuhasz</option>
+                    <option value="Korgi" <%= tpl.dog.species == 'Korgi' ? "selected" : "" %>>Korgi</option>
                 </select>
                 <label for="details"> Leírás </label>
-                <textarea rows="4" cols="10" id="details" name="details"><%= dog.details %></textarea>
+                <textarea rows="4" cols="10" id="details" name="details"><%= tpl.dog.details %></textarea>
                 <a href="javascript:history.back()"><input id="back" name="back" value="Vissza" type="Button"/></a>
-                <%if(dog.ownerUser == session.userId) {%>
+                <%if(tpl.dog.ownerUser == session.userId) {%>
                     <input id="moidfy" name="modify" value="Módosít" type="submit"/>
+                    <a href="/dogDetails/delete/<%=tpl.dog._id%>"><input id="delete" name="delete" value="Törlés" type="Button"/></a>
                 <%}%>
             </form>
+            <%if(tpl.dog.ownerUser == session.userId) {%>
+                <form action="/dogDetails/pictureUpload/<%= tpl.dog._id%>" method="post" enctype="multipart/form-data">
+                    <label for="image"> Kép </label>
+                    <input type="file" id="file", name="file"/>
+                    <input type="submit", id="submit", name="submit", value="Mentés"/>
+                </form>
+            <%}%>
         </div>
     </div>
 </section>

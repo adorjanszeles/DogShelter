@@ -4,7 +4,7 @@
 module.exports = function (objectrepository, viewName) {
     return function (req, res) {
         res.locals = req;
-        res.render(viewName, res.tpl);
+        res.render(viewName, res);
     };
 
 };

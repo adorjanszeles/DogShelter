@@ -18,7 +18,7 @@
                 <label for="dogName"> Hívónév </label>
                 <input id="dogName" name="dogName" type="text" maxlength="20"/>
                 <label for="userName"> Felelős felhasználó neve </label>
-                <input id="userName" name="userName" type="text" maxlength="20"/>
+                <input id="userName" name="userName" type="text" maxlength="20" disabled="true" value="<%= session.userName%>"/>
                 <select id="sex" name="sex">
                     <option value="default">Nem</option>
                     <option value="boy">Fiú</option>

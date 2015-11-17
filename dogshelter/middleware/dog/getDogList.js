@@ -14,6 +14,7 @@ module.exports = function (objectrepository) {
                 return next(err);
             }
             res.tpl.dogs = results;
+            res.tpl.searchFilter = {'sex': 'default', 'species': 'default'};
             return next();
         });
     };

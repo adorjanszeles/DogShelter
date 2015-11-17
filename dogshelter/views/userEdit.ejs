@@ -16,17 +16,17 @@
         <div class="large-8 columns large-centered">
             <form method="post">
                 <label for="name">Felhasználói név (*)</label>
-                <input id="name" name="name" type="text" maxlength="20" disabled="true" value="<%=user.userName%>"/>
+                <input id="name" name="name" type="text" maxlength="20" disabled="true" value="<%=tpl.user.userName%>"/>
                 <label for="password">Jelszó (*)</label>
                 <input id="password" name="password" type="password" maxlength="20"/>
                 <label for="passwordAgain">Jelszó mégegyszer (*)</label>
                 <input id="passwordAgain" name="passwordAgain" type="password" maxlength="20"/>
                 <label for="email">E-mail cím (*)</label>
-                <input id="email" name="email" type="text" maxlength="20" value="<%=user.email%>"/>
+                <input id="email" name="email" type="text" maxlength="20" value="<%=tpl.user.email%>"/>
                 <label for="phone">Telefonszám</label>
-                <input id="phone" name="phone" type="text" maxlength="20" value="<%=user.phone%>"/>
+                <input id="phone" name="phone" type="text" maxlength="20" value="<%=tpl.user.phone%>"/>
                 <label for="address">Lakcím</label>
-                <input id="address" name="address" type="text" maxlength="20" value="<%=user.address%>"/>
+                <input id="address" name="address" type="text" maxlength="20" value="<%=tpl.user.address%>"/>
                 <input id="modify" type="submit" value="Módosít"/>
             </form>
         </div>

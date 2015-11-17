@@ -10,6 +10,9 @@ var updateDogMW = require('../middleware/dog/updateDog');
 var updateUserMW = require('../middleware/user/updateUser');
 var logoutMW = require('../middleware/generic/logout');
 var checkUserModification = require('../middleware/user/checkUserModification');
+var deleteDogMW = require('../middleware/dog/deleteDog');
+var searchDogMW = require('../middleware/dog/dogSearch');
+var uploadDogPicture = require('../middleware/dog/uploadDogPicture');
 
 module.exports = function (app) {
 
@@ -22,6 +25,11 @@ module.exports = function (app) {
     app.get('/',
         mainRedirectMW(objectRepository),
         getDogListMW(objectRepository),
+        renderMW(objectRepository, 'index'));
+
+    app.post('/',
+        mainRedirectMW(objectRepository),
+        searchDogMW(objectRepository),
         renderMW(objectRepository, 'index'));
 
     // User detail page
@@ -56,14 +64,17 @@ module.exports = function (app) {
         mainRedirectMW(objectRepository),
         updateDogMW(objectRepository));
 
+    app.get('/dogDetails/delete/:dogId',
+        mainRedirectMW(objectRepository),
+        deleteDogMW(objectRepository));
+
     // login page
     app.get('/login',
         renderMW(objectRepository, 'login'));
 
     app.post('/login',
         checkUserLoginMW(objectRepository),
-        getDogListMW(objectRepository),
-        renderMW(objectRepository, 'index'));
+        renderMW(objectRepository, 'login'));
 
     app.get('/logout',
         logoutMW(objectRepository));
@@ -75,5 +86,9 @@ module.exports = function (app) {
     app.post('/userEdit/:userId',
         checkUserModification(objectRepository),
         updateUserMW(objectRepository));
+
+    app.post('/dogDetails/pictureUpload/:dogId',
+        mainRedirectMW(objectRepository),
+        uploadDogPicture(objectRepository));
 
 };

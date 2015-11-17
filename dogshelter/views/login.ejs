@@ -22,6 +22,13 @@
                 <input id="enter" name="enter" value="Belépés" type="submit"/>
             </form>
         </div>
+        <%if(error != []) {%>
+            <div class="large-4 columns large-centered">
+            <%error.forEach(function(item) {%>
+                <Label id="error" name="error" disabled="true"><%=item%></Label>
+            <%})%>
+            </div>
+        <%}%>
     </div>
 </section>
 </body>

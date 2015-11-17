@@ -4,6 +4,7 @@ var app = express();
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var busboy = require('connect-busboy');
 
 app.set('view engine', 'ejs');
 app.use('/public', express.static(__dirname + '/public'));
@@ -20,7 +21,8 @@ app.use(session({
     },
     resave: true,
     saveUninitialized: false,
-    userId: String
+    userId: String,
+    userName: String
 }));
 
 /**
@@ -32,6 +34,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use(busboy());
 
 /**
  * .tpl and .error on the res object

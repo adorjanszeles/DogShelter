@@ -1,9 +1,7 @@
 var requireOption = require('../common').requireOption;
 
 /**
- * Get the task for the taskid param
- *  - if there is no such task, redirect to /tasks
- *  - if there is one, put it on res.tpl.task
+ * Get the dog instance from database by id.
  */
 module.exports = function (objectrepository) {
 

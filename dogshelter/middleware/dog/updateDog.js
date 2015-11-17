@@ -36,7 +36,7 @@ module.exports = function (objectrepository) {
             } else {
                 dog = new dogModel();
 
-                userModel.findOne({'userName': req.body.userName}, function(err, result) {
+                userModel.findOne({_id: req.session.userId}, function(err, result) {
                     if (err) {
                         return next(err);
                     }

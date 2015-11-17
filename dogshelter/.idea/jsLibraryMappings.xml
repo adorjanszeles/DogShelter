@@ -4,9 +4,12 @@
     <file url="file://$PROJECT_DIR$" libraries="{dogshelter node_modules}" />
     <file url="file://$PROJECT_DIR$/index.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules, dogshelter node_modules}" />
     <file url="file://$PROJECT_DIR$/middleware/common.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
+    <file url="file://$PROJECT_DIR$/middleware/dog/deleteDog.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
+    <file url="file://$PROJECT_DIR$/middleware/dog/dogSearch.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/middleware/dog/getDogById.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/middleware/dog/getDogList.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/middleware/dog/updateDog.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
+    <file url="file://$PROJECT_DIR$/middleware/dog/uploadDogPicture.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/middleware/generic/logout.js" libraries="{Node.js Globals, Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/middleware/generic/mainRedirect.js" libraries="{Node.js v4.1.1 Core Modules}" />
     <file url="file://$PROJECT_DIR$/middleware/generic/render.js" libraries="{Node.js v4.1.1 Core Modules}" />

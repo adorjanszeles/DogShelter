@@ -8,16 +8,19 @@
 <div class="hero-content">
     <div class="small-3 columns">
         <h2>Kutya keresés</h2>
-        <select>
-            <option value="default">Nem</option>
-            <option value="boy">Fiú</option>
-            <option value="girl">Lány</option>
-        </select>
-        <select>
-            <option value="default">Fajta</option>
-            <option value="1">Mopsz</option>
-            <option value="2">Németjuhász</option>
-        </select>
+        <form method="post">
+            <select id="sexFilter" name="sexFilter">
+                <option value="default" <%= tpl.searchFilter.sex == 'default' ? "selected" : "" %>>Nem</option>
+                <option value="boy" <%= tpl.searchFilter.sex == 'boy' ? "selected" : "" %>>Fiú</option>
+                <option value="girl" <%= tpl.searchFilter.sex == 'girl' ? "selected" : "" %>>Lány</option>
+            </select>
+            <select id="speciesFilter" name="speciesFilter">
+                <option value="default" <%= tpl.searchFilter.species == 'default' ? "selected" : "" %>>Fajta</option>
+                <option value="Mopsz" <%= tpl.searchFilter.species == 'Mopsz' ? "selected" : "" %>>Mopsz</option>
+                <option value="Nemetjuhasz" <%= tpl.searchFilter.species == 'Nemetjuhasz' ? "selected" : "" %>>Németjuhász</option>
+            </select>
+            <input type="submit" id="search" name="search" value="Keresés" />
+        </form>
     </div>
 </div>
 
@@ -25,8 +28,8 @@
     <div class="row">
         <div class="large-8 columns large-centered">
             <ul class="small-block-grid-4">
-                <% dogs.forEach(function(item){ %>
-                <li><a href="dogDetails/<%=item.id%>"><img src="../public/img/dog_<%= 1 %>.png"/></a></li>
+                <% tpl.dogs.forEach(function(item){ %>
+                <li><a href="dogDetails/<%=item.id%>"><img src="../public/img/<%= item.id %>.png"/></a></li>
                 <% }) %>
             </ul>
         </div>
