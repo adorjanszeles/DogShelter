@@ -1,35 +1,76 @@
 var requireOption = require('../common').requireOption;
+var crypto = require('crypto');
 
-/**
- * Create (or update) User if we have the data for it
- * update if we have a res.tpl.dog, create if we don't have
- *  - if there is no title, set tpl.error
- *  - if everything is ok redirect to /userDetails/:id
- */
 module.exports = function (objectrepository) {
 
     var userModel = requireOption(objectrepository, 'userModel');
 
     return function (req, res, next) {
         var user = undefined;
-        if (typeof res.tpl.dog !== 'undefined') {
-            user = res.tpl.user;
-        } else {
-            user = new userModel();
-        }
 
-        user.userName = req.body.name;
-        user.password = req.body.password;
-        user.email = req.body.email;
-        user.phone = req.body.phone;
-        user.address = req.body.address;
-
-        user.save(function (err, result) {
+        userModel.findOne({_id: req.param('userId')}, function(err, result){
             if (err) {
                 return next(err);
             }
 
-            return res.redirect('/userDetails/' + result.id);
+            if(result != undefined) {
+                user = result;
+
+                if(req.body.password == '') {
+                    res.error.push('Passwords required!');
+                    return next();
+                }
+
+                if(req.body.password != req.body.passwordAgain) {
+                    res.error.push('Passwords not the same!');
+                    return next();
+                }
+
+                var sha = crypto.createHash('sha1');
+                sha.update(req.body.password);
+
+                user.password = sha.digest('hex');
+                user.email = req.body.email;
+                user.phone = req.body.phone;
+                user.address = req.body.address;
+
+                user.save(function (err, result) {
+                    if (err) {
+                        return next(err);
+                    }
+
+                    return res.redirect('/userDetails/' + result.id);
+                });
+            } else {
+                user = new userModel();
+
+                if(req.body.password == '') {
+                    res.error.push('Passwords required!');
+                    return next();
+                }
+
+                if(req.body.password != req.body.passwordAgain) {
+                    res.error.push('Passwords not the same!');
+                    return next();
+                }
+
+                var sha = crypto.createHash('sha1');
+                sha.update(req.body.password);
+
+                user.userName = req.body.userName;
+                user.password = sha.digest('hex');
+                user.email = req.body.email;
+                user.phone = req.body.phone;
+                user.address = req.body.address;
+
+                user.save(function (err, result) {
+                    if (err) {
+                        return next(err);
+                    }
+
+                    return res.redirect('/userDetails/' + result.id);
+                });
+            }
         });
     };
 };

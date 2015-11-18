@@ -49,10 +49,11 @@ module.exports = function (app) {
 
     // user registration page
     app.get('/registration',
-        renderMW(objectRepository, 'Registration'));
+        renderMW(objectRepository, 'registration'));
 
     app.post('/registration',
-        updateUserMW(objectRepository));
+        updateUserMW(objectRepository),
+        renderMW(objectRepository, 'registration'));
 
     // dog details page
     app.get('/dogDetails/:dogId',
@@ -85,10 +86,14 @@ module.exports = function (app) {
 
     app.post('/userEdit/:userId',
         checkUserModification(objectRepository),
-        updateUserMW(objectRepository));
+        updateUserMW(objectRepository),
+        renderMW(objectRepository, 'userEdit'));
 
     app.post('/dogDetails/pictureUpload/:dogId',
         mainRedirectMW(objectRepository),
         uploadDogPicture(objectRepository));
+
+    app.get('/errorPage/:errorMessage',
+        renderMW(objectRepository, 'errorPage'));
 
 };

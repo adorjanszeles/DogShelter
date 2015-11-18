@@ -15,8 +15,8 @@
     <div class="row">
         <div class="large-8 columns large-centered">
             <form method="post">
-                <label for="name">Felhasználói név (*)</label>
-                <input id="name" name="name" type="text" maxlength="20" disabled="true" value="<%=tpl.user.userName%>"/>
+                <label for="userName">Felhasználói név (*)</label>
+                <input id="userName" name="userName" type="text" maxlength="20" disabled="true" value="<%=tpl.user.userName%>"/>
                 <label for="password">Jelszó (*)</label>
                 <input id="password" name="password" type="password" maxlength="20"/>
                 <label for="passwordAgain">Jelszó mégegyszer (*)</label>
@@ -30,6 +30,7 @@
                 <input id="modify" type="submit" value="Módosít"/>
             </form>
         </div>
+        <%- include error/error %>
     </div>
 </section>
 </body>

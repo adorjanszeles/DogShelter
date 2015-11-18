@@ -1,0 +1,21 @@
+<!doctype html>
+<html class="no-js" lang="hu">
+<%- include head/head %>
+<body>
+
+<%- include menu/menu %>
+
+<div class="hero-content">
+    <div class="large-8 columns">
+        <h2>Hiba</h2>
+    </div>
+</div>
+
+<section class="hero-content">
+    <div class="large-8 columns large-centered">
+        <Label id="error" name="error"><%= req.param('errorMessage') %></Label>
+        <a href="javascript:history.back()"><input id="back" name="back" value="Vissza" type="Button"/></a>
+    </div>
+</section>
+</body>
+</html>

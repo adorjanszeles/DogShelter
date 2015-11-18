@@ -8,14 +8,11 @@ module.exports = function (objectrepository) {
 
         userModel.findOne({_id: req.param('userId')}, function (err, result) {
             if (err || (!result)) {
-                res.error.push('Your user name is not registered!');
-                return res.redirect('/login');
+                return res.redirect('/errorPage/Your user name is not registered!');
             }
 
             if (result._id != req.session.userId){
-                res.error.push('Its not your account!');
-                req.session.userId = undefined;
-                return res.redirect('/login');
+                return res.redirect('/errorPage/Its not your account!');
             }
 
             res.tpl.user = result;

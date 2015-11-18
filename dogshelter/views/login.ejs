@@ -13,7 +13,7 @@
 
 <section class="hero-content">
     <div class="row">
-        <div class="large-4 columns large-centered">
+        <div class="large-8 columns large-centered">
             <form method="post">
                 <label for="name">Felhasználói név</label>
                 <input id="userName" name="userName" type="text" maxlength="20"/>
@@ -22,13 +22,7 @@
                 <input id="enter" name="enter" value="Belépés" type="submit"/>
             </form>
         </div>
-        <%if(error != []) {%>
-            <div class="large-4 columns large-centered">
-            <%error.forEach(function(item) {%>
-                <Label id="error" name="error" disabled="true"><%=item%></Label>
-            <%})%>
-            </div>
-        <%}%>
+        <%- include error/error %>
     </div>
 </section>
 </body>

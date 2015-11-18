@@ -1,0 +1,7 @@
+<% if(error != []) { %>
+<div class="large-8 columns large-centered">
+    <% error.forEach(function(item) { %>
+    <Label id="error" name="error"><%= item %></Label>
+    <% }) %>
+</div>
+<% } %>

@@ -1,5 +1,6 @@
 var requireOption = require('../common').requireOption;
 var getDogList = require('../dog/getDogList');
+var crypto = require('crypto');
 
 module.exports = function (objectrepository) {
 
@@ -19,8 +20,12 @@ module.exports = function (objectrepository) {
                 return next();
             }
 
+            var sha = crypto.createHash('sha1');
+            sha.update(req.body.password);
+            var password = sha.digest('hex');
+
             // Check the password
-            if (result.password != req.body.password){
+            if (result.password != password){
                 res.error.push('Password incorrect!');
                 return next();
             }
