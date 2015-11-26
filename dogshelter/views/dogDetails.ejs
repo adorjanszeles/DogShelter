@@ -15,7 +15,7 @@
     <div class="row">
         <div class="large-8 columns large-centered">
             <form method="post">
-                <img src="../public/img/<%= tpl.dog._id %>.png" id="dogImage"/>
+                <img src="../public/img/<%= tpl.dog._id %>.<%=tpl.dog.pictureExtension%>" id="dogImage"/>
                 <label for="dogName"> Hívónév </label>
                 <input id="dogName" name="dogName" type="text" maxlength="20" value="<%= tpl.dog.callName %>"/>
                 <label for="userName"><a href="/userDetails/<%= tpl.dog.ownerUser %>">Felelős felhasználó neve</a></label>

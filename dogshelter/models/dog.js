@@ -9,6 +9,7 @@ var Dog = mongoose.model('Dog', {
     sex: String,
     species: String,
     details: String,
+    pictureExtension: String,
     ownerUserName: String,
     ownerUser: {
         type: mongoose.Schema.Types.ObjectId,

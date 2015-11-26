@@ -25,7 +25,13 @@ module.exports = function (objectrepository) {
                     file.pipe(fstream);
                     fstream.on('close', function () {
                         console.log("Upload Finished of " + filename);
-                        res.redirect('/dogDetails/' + dog._id);
+                        dog.pictureExtension = extension[1];
+                        dog.save(function (err, result) {
+                            if (err) {
+                                return next(err);
+                            }
+                            res.redirect('/dogDetails/' + result._id);
+                        });
                     });
                 });
             }

@@ -29,7 +29,7 @@
         <div class="large-8 columns large-centered">
             <ul class="small-block-grid-4">
                 <% tpl.dogs.forEach(function(item){ %>
-                <li><a href="dogDetails/<%=item.id%>"><img src="../public/img/<%= item.id %>.png"/></a></li>
+                <li><a href="dogDetails/<%=item.id%>"><img src="../public/img/<%= item.id %>.<%= item.pictureExtension%>"/></a></li>
                 <% }) %>
             </ul>
         </div>
